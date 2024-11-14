@@ -1,9 +1,17 @@
+import { getDevices } from "src/features/devices/queries";
+
 export default async function DevicesTable() {
-  const result = await fetch(
-    "https://static.ui.com/fingerprint/ui/public.json"
-  ).then((res) => res.json());
+  const result = await getDevices();
 
-  console.log(result);
+  if (!result.success) {
+    return <div>ERROR: {result.message}</div>;
+  }
 
-  return <div>TABLE {JSON.stringify(result, null, 2)}</div>;
+  return (
+    <ul>
+      {result.data.map((device) => (
+        <li key={device.id}>{device.product.name}</li>
+      ))}
+    </ul>
+  );
 }
