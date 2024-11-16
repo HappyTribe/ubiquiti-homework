@@ -14,7 +14,7 @@ export default async function PaginationButtons(props: { deviceId: string }) {
         </Link>
       </Button>
 
-      <Button variant="icon">
+      <Button variant="icon" asChild>
         <Link href={`/devices/${siblingDeviceIds.next}`}>
           <LeftArrowIcon className="rotate-180" />
         </Link>
