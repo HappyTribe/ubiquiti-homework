@@ -12,7 +12,10 @@ export default function BackButton() {
   }
 
   return (
-    <Button onClick={onNavigateBack}>
+    <Button
+      onClick={onNavigateBack}
+      className="pr-3 border-[1px] border-[#EDEDF0]"
+    >
       <LeftArrowIcon />
 
       <span>Back</span>

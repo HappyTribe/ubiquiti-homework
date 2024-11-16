@@ -18,7 +18,7 @@ export default async function DevicePage(props: {
 
   return (
     <>
-      <div className="w-full h-16 flex items-center">
+      <div className="w-full h-16 flex items-center justify-between">
         <BackButton />
 
         <PaginationButtons />

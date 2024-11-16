@@ -20,17 +20,17 @@ export default function Header() {
     <div className="flex w-full items-center justify-between py-4">
       <div className="flex items-center gap-x-2 ml-auto">
         <Button
+          variant="icon"
           onClick={onClickLayout("list")}
           data-active={searchParams.get("layout") === "list" ? true : undefined}
-          className="w-8 h-8"
         >
           <ListViewIcon />
         </Button>
 
         <Button
+          variant="icon"
           onClick={onClickLayout("grid")}
           data-active={searchParams.get("layout") !== "list" ? true : undefined}
-          className="w-8 h-8"
         >
           <GridViewIcon />
         </Button>
