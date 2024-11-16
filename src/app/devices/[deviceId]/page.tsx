@@ -3,6 +3,7 @@ import { getDeviceById } from "src/features/devices/queries";
 import BackButton from "./components/BackButton";
 import DescriptionListItem from "./components/DescriptionListItem";
 import ShowJSONButton from "./components/ShowJSONButton";
+import PaginationButtons from "./components/PaginationButtons";
 
 export default async function DevicePage(props: {
   params: Promise<{ deviceId: string }>;
@@ -19,6 +20,8 @@ export default async function DevicePage(props: {
     <>
       <div className="w-full h-16 flex items-center">
         <BackButton />
+
+        <PaginationButtons />
       </div>
 
       <div className="flex gap-x-8 self-center w-full max-w-[768px] mt-4">
