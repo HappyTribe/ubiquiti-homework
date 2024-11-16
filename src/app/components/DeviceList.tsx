@@ -11,33 +11,48 @@ export default async function DeviceList(props: { layout: "list" | "grid" }) {
 
   if (props.layout === "list") {
     return (
-      <table className="w-full text-left">
-        <thead>
-          <tr>
-            <th />
-            <th className="text-sm font-bold px-2 py-1">Product Line</th>
-            <th className="text-sm font-bold px-2 py-1">Product Name</th>
-          </tr>
-        </thead>
+      <ul className="divide-y-[1px] divide-neutral-100">
+        <li className="flex w-full">
+          <div className="w-8 h-8" />
 
-        <tbody>
-          {result.data.map((device) => (
-            <tr
-              key={device.id}
-              className="border-t-2 border-solid border-neutral-100"
+          <div className="flex-1 px-2 py-1">
+            <span className="text-sm font-bold text-black/85">
+              Product Line
+            </span>
+          </div>
+
+          <div className="flex-1 px-2 py-1">
+            <span className="text-sm font-bold text-black/85">Name</span>
+          </div>
+        </li>
+
+        {result.data.map((device) => (
+          <li key={device.id} className="z-0">
+            <Link
+              href={`/devices/${device.id}`}
+              className="flex w-full items-center hover:bg-[#f4f5f6] outline-none focus:ring-1 focus:ring-primary rounded-md ring-inset"
             >
-              <td className="px-2 py-1">
-                <DeviceImage device={device} />
+              <div className="flex items-center justify-center w-8 h-8">
+                <div className="flex items-center justify-center w-7 h-7 bg-neutral-100 rounded-md">
+                  <DeviceImage device={device} size="small" />
+                </div>
+              </div>
 
-                <div className="w-7 h-7 bg-neutral-100 rounded-md" />
-              </td>
+              <div className="flex flex-1 px-2 py-1 items-center">
+                <span className="text-sm text-black/65">
+                  {device.line?.name}
+                </span>
+              </div>
 
-              <td className="px-2 py-1">{device.line?.name}</td>
-              <td className="px-2 py-1">{device.product.name}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              <div className="flex flex-1 px-2 py-1 items-center">
+                <span className="text-sm text-black/45">
+                  {device.product.name}
+                </span>
+              </div>
+            </Link>
+          </li>
+        ))}
+      </ul>
     );
   }
 
