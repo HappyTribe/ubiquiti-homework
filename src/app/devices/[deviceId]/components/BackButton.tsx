@@ -8,7 +8,7 @@ export default function BackButton() {
   const router = useRouter();
 
   function onNavigateBack() {
-    router.back();
+    router.push("/");
   }
 
   return (
