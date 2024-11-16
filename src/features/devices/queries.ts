@@ -24,7 +24,7 @@ export async function getDevices(): Promise<
 
     return {
       success: true,
-      data: validationResult.data,
+      data: result.devices,
     };
   } catch (error) {
     console.error("getDevices error: ", error);
