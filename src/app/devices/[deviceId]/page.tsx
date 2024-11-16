@@ -3,6 +3,7 @@ import DescriptionListItem from "./components/DescriptionListItem";
 import Button from "src/ui/Button";
 import Link from "next/link";
 import LeftArrowIcon from "src/ui/icons/LeftArrow";
+import ShowJSONButton from "./components/ShowJSONButton";
 
 export default async function DevicePage(props: {
   params: Promise<{ deviceId: string }>;
@@ -57,9 +58,7 @@ export default async function DevicePage(props: {
         </div>
       </div>
 
-      <Button className="self-center text-primary mt-4">
-        See All Details as JSON
-      </Button>
+      <ShowJSONButton json={JSON.stringify(device, null, 2)} />
     </>
   );
 }
