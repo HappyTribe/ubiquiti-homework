@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { getDevices } from "src/features/devices/queries";
 
 export default async function DeviceList(props: { layout: "list" | "grid" }) {
@@ -56,21 +57,23 @@ export default async function DeviceList(props: { layout: "list" | "grid" }) {
           key={device.id}
           className="flex-grow w-[200px] min-h-10 border-[1px] border-solid border-[#EDEDF0] rounded-lg"
         >
-          <div className="relative bg-[#F9FAFA] w-full h-[100px] flex items-center justify-center">
-            <span className="absolute top-1 right-1 px-1 py-0.5 text-primary rounded-sm bg-white text-xs">
-              {device.line && <span>{device.line?.name}</span>}
-            </span>
+          <Link href={`/devices/${device.id}`}>
+            <div className="relative bg-[#F9FAFA] w-full h-[100px] flex items-center justify-center">
+              <span className="absolute top-1 right-1 px-1 py-0.5 text-primary rounded-sm bg-white text-xs">
+                {device.line && <span>{device.line?.name}</span>}
+              </span>
 
-            <div>IMAGE</div>
-          </div>
+              <div>IMAGE</div>
+            </div>
 
-          <div className="p-2">
-            <h3 className="text-black/85 text-sm h-10">
-              {device.product.name}
-            </h3>
+            <div className="p-2">
+              <h3 className="text-black/85 text-sm h-10">
+                {device.product.name}
+              </h3>
 
-            <p className="text-xs text-black/45">U6-Enterprise</p>
-          </div>
+              <p className="text-xs text-black/45">U6-Enterprise</p>
+            </div>
+          </Link>
         </li>
       ))}
     </ul>

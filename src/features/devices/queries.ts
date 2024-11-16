@@ -35,3 +35,13 @@ export async function getDevices(): Promise<
     };
   }
 }
+
+export async function getDeviceById(params: { id: string }) {
+  const result = await getDevices();
+
+  if (!result.success) {
+    return null;
+  }
+
+  return result.data.find((device) => device.id === params.id);
+}

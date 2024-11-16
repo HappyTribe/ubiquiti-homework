@@ -16,13 +16,7 @@ export default function Header() {
 
   return (
     <div className="flex w-full items-center justify-between py-4">
-      <div className="flex items-center gap-x-4">
-        <div>INPUT</div>
-
-        <div>RESULTS</div>
-      </div>
-
-      <div className="flex items-center gap-x-2">
+      <div className="flex items-center gap-x-2 ml-auto">
         <IconButton
           onClick={onClickLayout("list")}
           data-active={searchParams.get("layout") === "list" ? true : undefined}
