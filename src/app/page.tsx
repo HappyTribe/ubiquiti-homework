@@ -8,12 +8,12 @@ export default async function DevicesPage(props: {
   const { layout } = await props.searchParams;
 
   return (
-    <section className="px-8">
+    <>
       <Header />
 
       <Suspense fallback={<div>LOADING</div>}>
         <DeviceList layout={layout} />
       </Suspense>
-    </section>
+    </>
   );
 }

@@ -17,7 +17,9 @@ export default function RootLayout(
       <body>
         <Navbar />
 
-        {props.children}
+        <section className="px-8 relative flex flex-col">
+          {props.children}
+        </section>
       </body>
     </html>
   );
