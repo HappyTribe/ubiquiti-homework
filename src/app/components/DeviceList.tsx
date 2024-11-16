@@ -61,10 +61,10 @@ export default async function DeviceList(props: { layout: "list" | "grid" }) {
       {result.data.map((device) => (
         <li
           key={device.id}
-          className="flex-grow w-[200px] min-h-10 border-[1px] border-solid border-[#EDEDF0] rounded-lg"
+          className="flex-grow w-[200px] min-h-10 border-[1px] border-solid border-[#EDEDF0] rounded-lg overflow-hidden bg-white hover:bg-[#F9FAFA] group focus-within:ring-1 focus-within:ring-primary"
         >
-          <Link href={`/devices/${device.id}`}>
-            <div className="relative bg-[#F9FAFA] w-full h-[100px] flex items-center justify-center">
+          <Link href={`/devices/${device.id}`} className="outline-none">
+            <div className="relative w-full h-[100px] flex items-center justify-center bg-[#F9FAFA] group-hover:bg-[#f4f5f6]">
               <span className="absolute top-1 right-1 px-1 py-0.5 text-primary rounded-sm bg-white text-xs">
                 {device.line && <span>{device.line?.name}</span>}
               </span>
@@ -77,7 +77,9 @@ export default async function DeviceList(props: { layout: "list" | "grid" }) {
                 {device.product.name}
               </h3>
 
-              <p className="text-xs text-black/45">U6-Enterprise</p>
+              <p className="text-xs text-black/45">
+                {device.shortnames.join(", ")}
+              </p>
             </div>
           </Link>
         </li>
