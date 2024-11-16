@@ -1,5 +1,5 @@
 import { Suspense } from "react";
-import DevicesTable from "./components/DevicesTable";
+import DeviceList from "./components/DeviceList";
 import Header from "./components/Header";
 
 export default function HomePage() {
@@ -8,7 +8,7 @@ export default function HomePage() {
       <Header />
 
       <Suspense fallback={<div>LOADING</div>}>
-        <DevicesTable />
+        <DeviceList />
       </Suspense>
     </section>
   );

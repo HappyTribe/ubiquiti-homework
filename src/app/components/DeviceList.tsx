@@ -1,6 +1,6 @@
 import { getDevices } from "src/features/devices/queries";
 
-export default async function DevicesTable() {
+export default async function DeviceList() {
   const result = await getDevices();
 
   if (!result.success) {
