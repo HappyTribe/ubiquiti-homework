@@ -44,6 +44,7 @@ export default async function DevicePage(props: {
             <DescriptionListItem title="ID" value={device.id} />
             <DescriptionListItem title="Name" value={device.product.name} />
             <DescriptionListItem
+              hide={device.shortnames.length === 0}
               title="Short Name"
               value={device.shortnames.join(", ")}
             />
