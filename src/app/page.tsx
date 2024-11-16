@@ -1,17 +1,15 @@
+import { Suspense } from "react";
 import DevicesTable from "./components/DevicesTable";
-import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 
 export default function HomePage() {
   return (
-    <>
-      <Navbar />
+    <section className="px-8">
+      <Header />
 
-      <div className="px-8">
-        <Header />
-
+      <Suspense fallback={<div>LOADING</div>}>
         <DevicesTable />
-      </div>
-    </>
+      </Suspense>
+    </section>
   );
 }

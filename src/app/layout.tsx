@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "Ubiquiti Homework",
@@ -13,7 +14,11 @@ export default function RootLayout(
 ) {
   return (
     <html lang="en">
-      <body>{props.children}</body>
+      <body>
+        <Navbar />
+
+        {props.children}
+      </body>
     </html>
   );
 }
