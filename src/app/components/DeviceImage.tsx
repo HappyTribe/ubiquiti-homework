@@ -1,8 +1,15 @@
 import { TMinimalDevice } from "src/features/devices/types";
 import NoImageIcon from "src/ui/icons/NoImage";
+import clsn from "src/utils/clsn";
 
-export default function DeviceImage(props: { device: TMinimalDevice }) {
-  console.log("Device image ID: ", props.device.images?.default);
+export default function DeviceImage({
+  size = "default",
+  device,
+}: {
+  device: TMinimalDevice;
+  size?: "small" | "default";
+}) {
+  console.log("Device image ID: ", device.images?.default);
 
   {
     /* {device.images?.default && (
@@ -19,5 +26,12 @@ export default function DeviceImage(props: { device: TMinimalDevice }) {
   )} */
   }
 
-  return <NoImageIcon className="w-12 h-12 text-neutral-400" />;
+  return (
+    <NoImageIcon
+      className={clsn("text-neutral-400", {
+        "w-12 h-12": size === "default",
+        "w-4 h-4": size === "small",
+      })}
+    />
+  );
 }
