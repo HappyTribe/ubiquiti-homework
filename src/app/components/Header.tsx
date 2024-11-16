@@ -1,9 +1,9 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import Button from "./ui/Button";
-import ListViewIcon from "./ui/icons/ListView";
-import GridViewIcon from "./ui/icons/GridView";
+import Button from "../../ui/Button";
+import ListViewIcon from "../../ui/icons/ListView";
+import GridViewIcon from "../../ui/icons/GridView";
 
 export default function Header() {
   const pathname = usePathname();

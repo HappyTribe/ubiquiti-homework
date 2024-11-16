@@ -1,8 +1,8 @@
 import { getDeviceById } from "src/features/devices/queries";
 import DescriptionListItem from "./components/DescriptionListItem";
-import Button from "src/app/components/ui/Button";
+import Button from "src/ui/Button";
 import Link from "next/link";
-import LeftArrowIcon from "src/app/components/ui/icons/LeftArrow";
+import LeftArrowIcon from "src/ui/icons/LeftArrow";
 
 export default async function DevicePage(props: {
   params: Promise<{ deviceId: string }>;
