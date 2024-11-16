@@ -21,3 +21,5 @@ export const MinimalDeviceSchema = z.object({
     })
     .optional(),
 });
+
+export type TMinimalDevice = z.infer<typeof MinimalDeviceSchema>;

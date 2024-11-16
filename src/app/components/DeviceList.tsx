@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getDevices } from "src/features/devices/queries";
+import DeviceImage from "./DeviceImage";
 
 export default async function DeviceList(props: { layout: "list" | "grid" }) {
   const result = await getDevices();
@@ -26,18 +27,8 @@ export default async function DeviceList(props: { layout: "list" | "grid" }) {
               className="border-t-2 border-solid border-neutral-100"
             >
               <td className="px-2 py-1">
-                {/* {device.images?.default && (
-                  <Image
-                    src={getImageUrl({
-                      id: device.id,
-                      default: device.images.default,
-                      size: 20,
-                    })}
-                    alt={device.product.name}
-                    width={20}
-                    height={20}
-                  />
-                )} */}
+                <DeviceImage device={device} />
+
                 <div className="w-7 h-7 bg-neutral-100 rounded-md" />
               </td>
 
@@ -63,7 +54,7 @@ export default async function DeviceList(props: { layout: "list" | "grid" }) {
                 {device.line && <span>{device.line?.name}</span>}
               </span>
 
-              <div>IMAGE</div>
+              <DeviceImage device={device} />
             </div>
 
             <div className="p-2">

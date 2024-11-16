@@ -1,5 +1,5 @@
+import DeviceImage from "src/app/components/DeviceImage";
 import { getDeviceById } from "src/features/devices/queries";
-import NoImageIcon from "src/ui/icons/NoImage";
 import BackButton from "./components/BackButton";
 import DescriptionListItem from "./components/DescriptionListItem";
 import ShowJSONButton from "./components/ShowJSONButton";
@@ -23,7 +23,7 @@ export default async function DevicePage(props: {
 
       <div className="flex gap-x-8 self-center w-full max-w-[768px] mt-4">
         <div className="bg-[#F9FAFA] aspect-square w-full max-w-[292px] flex items-center justify-center">
-          <NoImageIcon className="w-12 h-12 text-neutral-400" />
+          <DeviceImage device={device} />
         </div>
 
         <div className="w-full">
