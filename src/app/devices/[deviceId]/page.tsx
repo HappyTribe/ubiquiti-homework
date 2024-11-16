@@ -1,9 +1,7 @@
 import { getDeviceById } from "src/features/devices/queries";
 import DescriptionListItem from "./components/DescriptionListItem";
-import Button from "src/ui/Button";
-import Link from "next/link";
-import LeftArrowIcon from "src/ui/icons/LeftArrow";
 import ShowJSONButton from "./components/ShowJSONButton";
+import BackButton from "./components/BackButton";
 
 export default async function DevicePage(props: {
   params: Promise<{ deviceId: string }>;
@@ -19,13 +17,7 @@ export default async function DevicePage(props: {
   return (
     <>
       <div className="w-full h-16 flex items-center">
-        <Button asChild>
-          <Link href="/">
-            <LeftArrowIcon />
-
-            <span>Back</span>
-          </Link>
-        </Button>
+        <BackButton />
       </div>
 
       <div className="flex gap-x-8 self-center w-full max-w-[768px] mt-4">

@@ -29,7 +29,7 @@ export default function Header() {
 
         <Button
           onClick={onClickLayout("grid")}
-          data-active={searchParams.get("layout") === "grid" ? true : undefined}
+          data-active={searchParams.get("layout") !== "list" ? true : undefined}
           className="w-8 h-8"
         >
           <GridViewIcon />
