@@ -45,3 +45,52 @@ export async function getDeviceById(params: { id: string }) {
 
   return result.data.find((device) => device.id === params.id);
 }
+
+export async function getSiblingDeviceIds(params: { id: string }) {
+  const result = await getDevices();
+
+  if (!result.success) {
+    return { previous: null, next: null };
+  }
+
+  const currentDeviceIndex = result.data.findIndex(
+    (device) => device.id === params.id
+  );
+
+  if (currentDeviceIndex === -1) {
+    return { previous: null, next: null };
+  }
+
+  const previousDeviceIndex = currentDeviceIndex - 1;
+  const nextDeviceIndex = currentDeviceIndex + 1;
+
+  if (previousDeviceIndex === -1) {
+    // current device is the first one
+    // set previous device to the last device so it loops
+    // set next device normally
+
+    return {
+      previous: result.data[result.data.length - 1].id,
+      next: result.data[nextDeviceIndex].id,
+    };
+  }
+
+  if (nextDeviceIndex === result.data.length) {
+    // current device is the last one
+    // set previou device normally
+    // set next device to the first device so it loops
+
+    return {
+      previous: result.data[previousDeviceIndex].id,
+      next: result.data[0].id,
+    };
+  }
+
+  // current device is neither first nor last
+  // set previous and next normally
+
+  return {
+    previous: result.data[previousDeviceIndex].id,
+    next: result.data[nextDeviceIndex].id,
+  };
+}
