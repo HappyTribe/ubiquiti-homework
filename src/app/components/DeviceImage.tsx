@@ -1,6 +1,6 @@
 import { TMinimalDevice } from "src/features/devices/types";
 import NoImageIcon from "src/ui/icons/NoImage";
-import clsn from "src/utils/clsn";
+import cn from "src/utils/cn";
 
 export default function DeviceImage({
   size = "default",
@@ -28,7 +28,7 @@ export default function DeviceImage({
 
   return (
     <NoImageIcon
-      className={clsn("text-neutral-400", {
+      className={cn("text-neutral-400", {
         "w-12 h-12": size === "default",
         "w-4 h-4": size === "small",
       })}
