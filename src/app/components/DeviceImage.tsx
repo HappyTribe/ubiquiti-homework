@@ -11,20 +11,24 @@ export default function DeviceImage({
 }) {
   console.log("Device image ID: ", device.images?.default);
 
-  {
-    /* {device.images?.default && (
-    <Image
-      src={getImageUrl({
-        id: device.id,
-        default: device.images.default,
-        size: 20,
-      })}
-      alt={device.product.name}
-      width={20}
-      height={20}
-    />
-  )} */
-  }
+  // I can't get this image domain to work
+  // It's returning me either a 400 or 403 error
+  // if (device.images?.default) {
+  //   const imageSize = size === "default" ? 48 : 16;
+
+  //   return (
+  //     <Image
+  //       src={getImageUrl({
+  //         id: device.id,
+  //         default: device.images.default,
+  //         size: imageSize,
+  //       })}
+  //       alt={device.product.name}
+  //       width={imageSize}
+  //       height={imageSize}
+  //     />
+  //   );
+  // }
 
   return (
     <NoImageIcon
