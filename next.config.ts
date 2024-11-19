@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "images.svc.ui.com",
+        hostname: "do.not.pass.images.through.vercel",
         port: "",
       },
     ],

@@ -1,6 +1,8 @@
 import { TMinimalDevice } from "src/features/devices/types";
 import NoImageIcon from "src/ui/icons/NoImage";
 import cn from "src/utils/cn";
+import Image from "next/image";
+import getImageUrl from "src/utils/getImageUrl";
 
 export default function DeviceImage({
   size = "default",
@@ -11,24 +13,23 @@ export default function DeviceImage({
 }) {
   console.log("Device image ID: ", device.images?.default);
 
-  // I can't get this image domain to work
-  // It's returning me either a 400 or 403 error
-  // if (device.images?.default) {
-  //   const imageSize = size === "default" ? 48 : 16;
+  if (device.images?.default) {
+    const imageSize = size === "default" ? 48 : 16;
 
-  //   return (
-  //     <Image
-  //       src={getImageUrl({
-  //         id: device.id,
-  //         default: device.images.default,
-  //         size: imageSize,
-  //       })}
-  //       alt={device.product.name}
-  //       width={imageSize}
-  //       height={imageSize}
-  //     />
-  //   );
-  // }
+    return (
+      <Image
+        unoptimized
+        src={getImageUrl({
+          id: device.id,
+          default: device.images.default,
+          size: imageSize,
+        })}
+        alt={device.product.name}
+        width={imageSize}
+        height={imageSize}
+      />
+    );
+  }
 
   return (
     <NoImageIcon
